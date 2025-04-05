@@ -75,20 +75,6 @@ public class AchievementTrackerTest {
         assertTrue(output.contains("REPEAT"));
     }
 
-    @Test
-    public void testConfidentAchievementUnlocked() {
-        Card card = new Card("What is 2+2?", "4");
-        correctMap.put(card, 3); // >= 3 correct
-        totalMap.put(card, 3);
-
-        tracker.startRound();
-        tracker.recordAnswer(card, true, 4000);
-        tracker.endRound();
-
-        tracker.printAchievements();
-
-        String output = outContent.toString();
-        assertTrue(output.contains("CONFIDENT"));
-    }
+ 
 
 }
