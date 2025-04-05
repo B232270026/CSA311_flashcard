@@ -18,7 +18,7 @@ jobs:
         cache: 'maven'
 
     - name: Verify POM.xml exists
-      run: ls -la Java  \
+      run: ls -la Flashcard  \
 
     - name: Build with Maven
       working-directory: Flashcard
