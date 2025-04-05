@@ -1,0 +1,12 @@
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\App.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\card\Card.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\command\CommandLineOption.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\command\HelpFormat.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\FlashcardApp.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\process\CardLoader.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\process\FlashCardSess.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\sorter\CardOrganizer.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\sorter\OrganizerFactory.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\sorter\RandomSorter.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\sorter\RecentMistakesFirstSorter.java
+C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\src\main\java\com\flashcard\sorter\WorstFirstSorter.java
