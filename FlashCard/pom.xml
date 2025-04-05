@@ -84,6 +84,28 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.6.1</version>
         </plugin>
+        <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Class to run -->
+                            <mainClass>com.flashcard.FlashcardApp</mainClass>
+                            <!-- Arguments to pass to the Java application -->
+                            <arguments>
+                                <argument>flashcards.txt</argument>
+                                <argument>--order</argument>
+                                <argument>recent-mistakes-first</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
       </plugins>
     </pluginManagement>
   </build>

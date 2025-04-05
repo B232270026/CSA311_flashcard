@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.flashcard.achievement.AchievementTracker;
 import com.flashcard.card.Card;
 import com.flashcard.command.CommandLineOption;
 import com.flashcard.sorter.CardOrganizer;
@@ -16,16 +17,19 @@ public class FlashCardSess {
     private final Map<Card, Integer> correctMap = new HashMap<>();
     private final Map<Card, Integer> totalMap = new HashMap<>();
     private final Scanner scanner = new Scanner(System.in);
-    
+    private final AchievementTracker tracker;
+
 
     public FlashCardSess(List<Card> cards, CardOrganizer organizer, CommandLineOption options) {
         this.cards = cards;
         this.organizer = organizer;
         this.options = options;
+        this.tracker = new AchievementTracker(correctMap, totalMap);
     }
 
     public void start() {
         List<Card> toAsk = cards;
+        tracker.startRound();
 
         boolean done;
         do {
@@ -43,26 +47,32 @@ public class FlashCardSess {
         } while (!done);
 
         System.out.println("All cards completed!");
+        tracker.endRound();
+        tracker.printAchievements();
     }
 
     private void ask(Card card) {
         String front = options.isInvert() ? card.getAnswer() : card.getQuestion();
         String back = options.isInvert() ? card.getQuestion() : card.getAnswer();
-
-        System.out.println("Q: " + front);
+        long start = System.nanoTime();
+        System.out.println("Question: " + front);
         String userAnswer = scanner.nextLine().trim();
-
+        long end = System.nanoTime();
         totalMap.put(card, totalMap.getOrDefault(card, 0) + 1);
-
-        if (userAnswer.equalsIgnoreCase("exit")) {
-            System.exit(0);
-        }
-
-        if (userAnswer.equalsIgnoreCase(back)) {
+        boolean isCorrect = userAnswer.equalsIgnoreCase(back);
+        totalMap.put(card, totalMap.getOrDefault(card, 0) + 1);
+        
+        if (isCorrect) {
             System.out.println("Correct!");
             correctMap.put(card, correctMap.getOrDefault(card, 0) + 1);
         } else {
-            System.out.println("Incorrect. Correct answer: " + back);
+            System.out.println(" Incorrect. Correct Answer: " + back);
         }
+        
+        tracker.recordAnswer(card, isCorrect, (end - start) / 1_000_000);
+
+       
+
+        
     }
 }

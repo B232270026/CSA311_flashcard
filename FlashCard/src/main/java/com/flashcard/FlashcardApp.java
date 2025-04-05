@@ -21,9 +21,10 @@ public class FlashcardApp {
         }
 
         try {
-            List<Card> cards = CardLoader.loadCards(options.getCardsFile());
+            List<Card> cards = CardLoader.loadCardsFromFile(options.getCardsFile());
             CardOrganizer organizer = OrganizerFactory.create(options.getOrder());
 
+            
             FlashCardSess session = new FlashCardSess(cards, organizer, options);
             session.start();
 

@@ -1,12 +1,12 @@
 com\flashcard\command\CommandLineOption.class
-com\flashcard\command\HelpFormat.class
 com\flashcard\sorter\OrganizerFactory.class
-com\flashcard\sorter\RandomSorter.class
-com\flashcard\process\FlashCardSess.class
 com\flashcard\FlashcardApp.class
-com\flashcard\sorter\RecentMistakesFirstSorter.class
 com\flashcard\sorter\WorstFirstSorter.class
 com\flashcard\card\Card.class
-com\flashcard\App.class
 com\flashcard\process\CardLoader.class
 com\flashcard\sorter\CardOrganizer.class
+com\flashcard\command\HelpFormat.class
+com\flashcard\sorter\RandomSorter.class
+com\flashcard\process\FlashCardSess.class
+com\flashcard\sorter\RecentMistakesFirstSorter.class
+com\flashcard\App.class
