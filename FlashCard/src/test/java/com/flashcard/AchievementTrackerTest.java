@@ -75,6 +75,4 @@ public class AchievementTrackerTest {
         assertTrue(output.contains("REPEAT"));
     }
 
- 
-
 }
