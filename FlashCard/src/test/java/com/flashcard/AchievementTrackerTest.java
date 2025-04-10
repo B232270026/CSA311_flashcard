@@ -50,7 +50,7 @@ public class AchievementTrackerTest {
         totalMap.put(card, 1);
 
         tracker.startRound();
-        tracker.recordAnswer(card, true, 4000);
+        tracker.recordAnswer(card, true, 5000);
         tracker.endRound();
 
         tracker.printAchievements();
