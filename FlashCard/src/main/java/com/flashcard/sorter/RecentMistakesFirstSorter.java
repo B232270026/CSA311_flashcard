@@ -1,47 +1,35 @@
-// RecentMistakesFirstSorter implementation
 package com.flashcard.sorter;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.flashcard.card.Card;
 
 public class RecentMistakesFirstSorter implements CardOrganizer {
-    private List<Card> recentMistakes = new ArrayList<>();
-    
-    @Override
-    public List<Card> organize(List<Card> cards, Map<Card, Integer> correctMap, Map<Card, Integer> totalMap) {
+    private final Set<Card> recentMistakes = new LinkedHashSet<>();
+
+    public List<Card> organize(List<Card> cards, Map<Card, Integer> correct, Map<Card, Integer> total) {
         List<Card> result = new ArrayList<>();
-        
-        // First add cards with recent mistakes (maintaining their original order)
-        for (Card card : recentMistakes) {
-            if (cards.contains(card)) {
-                result.add(card);
+
+        for (Card c : cards) {
+            int t = total.getOrDefault(c, 0);
+            int r = correct.getOrDefault(c, 0);
+            if (t > 0 && r < t) {
+                recentMistakes.add(c);
             }
         }
-        
-        // Then add remaining cards in their original order
-        for (Card card : cards) {
-            if (!result.contains(card)) {
-                result.add(card);
-            }
+
+        for (Card c : recentMistakes) {
+            if (cards.contains(c)) result.add(c); 
         }
-        
-        // Clear the recent mistakes list
-        recentMistakes.clear();
-        
-        // Record cards that are not correctly answered for the next round
-        for (Card card : cards) {
-            int correct = correctMap.getOrDefault(card, 0);
-            int total = totalMap.getOrDefault(card, 0);
-            
-            // If the card has been attempted but not always correct
-            if (total > 0 && correct < total) {
-                recentMistakes.add(card);
-            }
+
+        for (Card c : cards) {
+            if (!result.contains(c)) result.add(c);
         }
-        
+
         return result;
     }
 }

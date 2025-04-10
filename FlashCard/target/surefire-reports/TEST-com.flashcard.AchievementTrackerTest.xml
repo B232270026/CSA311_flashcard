@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.flashcard.AchievementTrackerTest" time="0.071" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="com.flashcard.AchievementTrackerTest" time="0.097" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -12,11 +12,12 @@
     <property name="user.timezone" value="Asia/Ulaanbaatar"/>
     <property name="os.name" value="Windows 11"/>
     <property name="java.vm.specification.version" value="21"/>
-    <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\com\AppData\Local\Temp\surefire17698420512414901116\surefirebooter-20250410135232492_3.jar C:\Users\com\AppData\Local\Temp\surefire17698420512414901116 2025-04-10T13-52-32_319-jvmRun1 surefire-20250410135232492_1tmp surefire_0-20250410135232492_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\com\AppData\Local\Temp\surefire10474504741039015966\surefirebooter-20250411011716851_3.jar C:\Users\com\AppData\Local\Temp\surefire10474504741039015966 2025-04-11T01-17-16_617-jvmRun1 surefire-20250411011716851_1tmp surefire_0-20250411011716851_2tmp"/>
     <property name="jdk.debug" value="release"/>
+    <property name="test" value="com.flashcard.AchievementTrackerTest"/>
     <property name="surefire.test.class.path" value="C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\target\test-classes;C:\Users\com\CSA311_2k25\CSA311_flashcard\FlashCard\target\classes;C:\Users\com\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.0\junit-jupiter-api-5.11.0.jar;C:\Users\com\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\com\.m2\repository\org\junit\platform\junit-platform-commons\1.11.0\junit-platform-commons-1.11.0.jar;C:\Users\com\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\com\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.0\junit-jupiter-params-5.11.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\com"/>
@@ -30,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\com\AppData\Local\Temp\surefire17698420512414901116\surefirebooter-20250410135232492_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\com\AppData\Local\Temp\surefire10474504741039015966\surefirebooter-20250411011716851_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.1+12-LTS-29"/>
@@ -41,6 +42,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="C:\Users\com\.vscode\extensions\oracle.oracle-java-23.1.0\nbcode\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="localRepository" value="C:\Users\com\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\com\AppData\Local\Temp\"/>
@@ -58,7 +60,24 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testRepeatAchievementUnlocked" classname="com.flashcard.AchievementTrackerTest" time="0.034"/>
-  <testcase name="testCorrectAchievementUnlocked" classname="com.flashcard.AchievementTrackerTest" time="0.003"/>
-  <testcase name="testFastAchievementUnlocked" classname="com.flashcard.AchievementTrackerTest" time="0.002"/>
+  <testcase name="testAchievements" classname="com.flashcard.AchievementTrackerTest" time="0.057">
+    <system-out><![CDATA[
+--------------- Amjiltuud ---------------
+REPEAT: Neg kartad 5-aas olon udaa hariulsan
+CONFIDENT: Neg kartad dor hayj 3 udaa zuw hariulsan
+CORRECT: Suuliin toirogt buh kartad zuw hariulsan
+SPEED: Dundjaar 5 sec-s baga hugatsaand zuw hariulsan
+
+---------------Delgerengui medeelel---------------
+
+5-aas olon udaa hariulsan asuultuud:
+"Q" - 6 udaa hariulsan
+
+Dundaj hugatsaanii medeelel:
+Niit asuultand hatiulsan dundaj hugatsaa: 0 ms
+
+Kart bur deer zartsuulsan hugatsaa:
+"Q" - dundaj hugatsaa 4000 ms (6 udaa hariulsan)
+]]></system-out>
+  </testcase>
 </testsuite>
