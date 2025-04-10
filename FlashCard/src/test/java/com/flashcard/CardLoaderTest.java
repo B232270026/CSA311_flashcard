@@ -14,7 +14,7 @@ public class CardLoaderTest {
 
     @Test
     public void testLoadCardsFromFile() throws IOException {
-        // create temp file with test data
+       
         Path tempFile = Files.createTempFile("flashcards", ".txt");
         Files.write(tempFile, List.of(
             "Capital of France|Paris",

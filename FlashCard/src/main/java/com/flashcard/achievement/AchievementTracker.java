@@ -15,15 +15,12 @@ public class AchievementTracker {
     private long totalTime;
     private int totalAnswers;
     
-    // Track individual card attempts within a session
     private final Map<Card, Integer> attemptCount = new HashMap<>();
     private final Map<Card, Integer> correctStreak = new HashMap<>();
     
-    // Track timing information
     private final Map<Card, Long> totalTimePerCard = new HashMap<>();
     private final Map<Card, Integer> answersPerCard = new HashMap<>();
     
-    // Set to track achievements already earned to avoid duplicates
     private final List<String> achievementsEarned = new ArrayList<>();
 
     public AchievementTracker(Map<Card, Integer> correctMap, Map<Card, Integer> totalMap) {
@@ -40,7 +37,6 @@ public class AchievementTracker {
     public void endRound() {
         totalTime = System.currentTimeMillis() - startTime;
         
-        // Check for CORRECT achievement
         boolean allCorrect = true;
         for (Map.Entry<Card, Boolean> entry : lastRoundResults.entrySet()) {
             if (!entry.getValue()) {
@@ -56,7 +52,6 @@ public class AchievementTracker {
             }
         }
         
-        // Check for SPEED achievement
         if (totalAnswers > 0 && (totalTime / totalAnswers) < 5000) {
             String achievement = "SPEED: Dundjaar 5 sec-s baga hugatsaand zuw hariulsan";
             if (!achievementsEarned.contains(achievement)) {
@@ -69,21 +64,17 @@ public class AchievementTracker {
         totalAnswers++;
         lastRoundResults.put(card, isCorrect);
         
-        // REPEAT амжилтын оролдлогыг хянах
         attemptCount.put(card, attemptCount.getOrDefault(card, 0) + 1);
         
-        // Track timing information
         totalTimePerCard.put(card, totalTimePerCard.getOrDefault(card, 0L) + timeMs);
         answersPerCard.put(card, answersPerCard.getOrDefault(card, 0) + 1);
         
-        // Track correct answers for CONFIDENT achievement
         if (isCorrect) {
             correctStreak.put(card, correctStreak.getOrDefault(card, 0) + 1);
         } else {
             correctStreak.put(card, 0);
         }
         
-        // Check for REPEAT achievement (now correctly checking for GREATER THAN 5)
         int attempts = attemptCount.getOrDefault(card, 0);
         if (attempts > 5) {  // Changed from attempts >= 5 to attempts > 5
             String achievement = "REPEAT: Neg kartad 5-aas olon udaa hariulsan";
@@ -91,8 +82,7 @@ public class AchievementTracker {
                 achievementsEarned.add(achievement);
             }
         }
-        
-        // Check for CONFIDENT achievement
+  
         if (correctStreak.getOrDefault(card, 0) >= 3) {
             String achievement = "CONFIDENT: Neg kartad dor hayj 3 udaa zuw hariulsan";
             if (!achievementsEarned.contains(achievement)) {
@@ -128,12 +118,10 @@ public class AchievementTracker {
                 }
             }
             
-            // Display average time statistics
             if (totalAnswers > 0) {
                 System.out.println("\nDundaj hugatsaanii medeelel:");
                 System.out.println("Niit asuultand hatiulsan dundaj hugatsaa: " + (totalTime / totalAnswers) + " ms");
-                
-                // Display per-card time statistics for cards answered multiple times
+
                 System.out.println("\nKart bur deer zartsuulsan hugatsaa:");
                 for (Map.Entry<Card, Integer> entry : answersPerCard.entrySet()) {
                     if (entry.getValue() > 1) {
